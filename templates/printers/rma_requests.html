@@ -1,0 +1,46 @@
+{% extends "admin_account/report_base.html" %}
+
+{% block title %}Printers{% endblock title %}
+
+{% block content %}
+ <div class="col-md-12">
+ <div class="container" style="text-align: center">
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container">
+        <h1 class="display-4">RMA REQUESTS</h1>
+      </div>
+    </div>
+</div>
+        <div class="table-responsive">
+  <table id="bootstrapdatatable" class="table table-striped table-bordered" width="100%">
+            <thead>
+                <th>Requested By</th>
+                <th>Printer No.</th>
+                <th>Part Name</th>
+                <th>Faulty Serial Number</th>
+                <th>Replaced Serial Number</th>
+                <th>Warranty Status</th>
+                <th>Rejection Reason</th>
+                <th>Date Requested</th>
+                <th>Update</th>
+             </thead>
+   <tbody>
+   {% for printer in printers %}
+    <tr>
+     <td>{{ printer.user }}</td>
+     <td>{{ printer.printer_number }}</td>
+     <td>{{ printer.part_name }}</td>
+     <td>{{ printer.faulty_part_barcode }}</td>
+     <td>{{ printer.replaced_part_barcode }}</td>
+     <td>{{ printer.updated_at }}</td>
+     <td>{{ printer.rejection_reason }}</td>
+     <td>{{ printer.created_at }}</td>
+     <td><p data-placement="top" data-toggle="tooltip" title="Update Printer"><a href="/update_rma/{{ printer.pk}}" class="btn btn-primary btn-xs" data-title="Update" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-pencil"></span></a></p></td>
+    </tr>
+   {% endfor %}
+   </tbody>
+
+  </table>
+        </div>
+    </div>
+{% endblock content %}

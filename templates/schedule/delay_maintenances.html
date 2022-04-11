@@ -1,0 +1,60 @@
+{% extends "admin_account/report_base.html" %}
+{% block title %}Delay Maintenance{% endblock title %}
+
+
+{% block content %}
+ <div class="col-md-12">
+ <div class="container" style="text-align: center">
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container">
+        <h1 class="display-4">DELAY MAINTENANCES </h1>
+        <h2>Due to {{ title}}</h2>
+      </div>
+    </div>
+</div>
+ <div class="col-md-6">
+          <div class="card card-body">
+              <form action="{% url 'delay_maintenances'%}" method="POST">
+                  {% csrf_token %}
+                  <h5>Select a category</h5>
+                  <select name="key" autofocus>
+                     <option value="np">No Parts</option>
+                     <option value="cd">Car Delay</option>
+                     <option value="ii">Internal Issues</option>
+                  </select>
+{#                  <br/>#}
+                  <button class="btn btn-outline-info" type="submit">Submit</button>
+               </form>
+          </div>
+      </div>
+        <div class="table-responsive">
+  <table id="bootstrapdatatable" class="table table-striped table-bordered" width="100%">
+            <thead>
+                <th>Box No.</th>
+                <th>Printer No.</th>
+                <th>Scheduled By</th>
+                <th>Pickup Parts</th>
+                <th>Problem</th>
+                <th>Delay Reason</th>
+                <th>Pickup Date</th>
+                <th>Request Date</th>
+             </thead>
+   <tbody>
+   {% for schedule in schedules %}
+    <tr>
+     <td>{{ schedule.box_number }}</td>
+     <td>{{ schedule.printer_number }}</td>
+     <td>{{ schedule.user }}</td>
+     <td>{{ schedule.pickup_parts }}</td>
+     <td>{{ schedule.problem }}</td>
+     <td>{{ schedule.delay_maintenance_reason}}</td>
+     <td>{{ schedule.pickup_date }}</td>
+     <td>{{ schedule.delay_maintenance_date}}</td>
+    </tr>
+   {% endfor %}
+   </tbody>
+
+  </table>
+        </div>
+    </div>
+{% endblock content %}

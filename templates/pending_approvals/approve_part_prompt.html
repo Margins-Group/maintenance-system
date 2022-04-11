@@ -1,0 +1,22 @@
+{% extends 'crispy_base.html' %}
+{% block content %}
+<br>
+    <div class="row">
+      <div class="col-md-6">
+          <div class="card card-body">
+             <p>Are you sure you want to APPROVE "{{ item }}" as a new part to be added?</p>
+              <p>Be reminded that by confirming you agree to successfully add {{ item }} and can't be deleted!.</p>
+
+             <form action="{% url 'approve_part' item.id%}" method="POST">
+
+                {% csrf_token %}
+                <a class="btn btn-outline-info" href="{% url 'part_requests' %}">Cancel</a>
+
+                <button class="btn btn-outline-info" type="submit">Confirm</button>
+
+             </form>
+          </div>
+      </div>
+
+    </div>
+{% endblock %}

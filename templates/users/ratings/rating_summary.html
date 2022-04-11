@@ -1,0 +1,69 @@
+{% extends "admin_account/report_base.html" %}
+
+{% load static %}
+
+{% block title %}Ratings{% endblock title %}
+
+
+{% block content %}
+ <div class="col-md-12">
+ <div class="container" style="text-align: center">
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container">
+        <h1 class="display-4">Ratings Summary</h1>
+        <h2>{{ title}}</h2>
+      </div>
+    </div>
+</div>
+
+ <div class="col-md-6">
+          <div class="card card-body">
+              <form action="{% url 'rating_summary'%}" method="POST">
+                  {% csrf_token %}
+                  <h5>Select rating type</h5>
+                  <select name="key" autofocus>
+                     <option value="training">Ratings on Trainings</option>
+                     <option value="repairs">Ratings on Repairs</option>
+                     <option value="repairs">Ratings on Helpdesk</option>
+                  </select>
+{#                  <br/>#}
+                  <button class="btn btn-outline-info" type="submit">Submit</button>
+               </form>
+          </div>
+      </div>
+
+  <div class="table-responsive">
+  <table id="bootstrapdatatable" class="table table-striped table-bordered" width="100%">
+            <thead>
+                <th>Profile Image</th>
+                <th>Technician</th>
+                <th>No. of Ratings</th>
+                <th>Total Ratings</th>
+                <th>Average Rating</th>
+                <th>Remark</th>
+             </thead>
+   <tbody>
+   {% for i in ratings %}
+    <tr>
+    <td>
+         <div class="profile-img">
+             {% if i.image %}
+                 <img src="{{ i.image.url}}" alt="connect" style="max-height:250px">
+             {% else %}
+                 <img src="{% static 'images/default.jpg' %}" alt="default">
+             {% endif %}
+         </div>
+     </td>
+     <td>{{ i.first_name}} {{ i.middle_name}} {{ i.last_name}}</td>
+     <td>{{ i.username }}</td>
+     <td>{{ i.email}}</td>
+     <td>{{ i.password }}</td>
+     <td>{{ i.is_active}}</td>
+    </tr>
+   {% endfor %}
+   </tbody>
+
+  </table>
+        </div>
+    </div>
+{% endblock content %}

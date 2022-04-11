@@ -1,0 +1,22 @@
+{% extends 'crispy_base.html' %}
+{% block content %}
+<br>
+    <div class="row">
+      <div class="col-md-6">
+          <div class="card card-body">
+             <p>Are you sure you want to REJECT "{{ item }}" as a new client?</p>
+              <p>Be reminded that by confirming you agree that "{{ item }} will be deleted permanently!".</p>
+
+             <form action="{% url 'reject_client' item.id%}" method="POST">
+
+                {% csrf_token %}
+                <a class="btn btn-outline-info" href="{% url 'client_requests' %}">Cancel</a>
+
+                <button class="btn btn-outline-info" type="submit">Confirm</button>
+
+             </form>
+          </div>
+      </div>
+
+    </div>
+{% endblock %}

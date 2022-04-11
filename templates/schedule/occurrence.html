@@ -1,0 +1,64 @@
+{% extends "admin_account/report_base.html" %}
+{% block title %}Occurrence{% endblock title %}
+
+
+{% block content %}
+ <div class="col-md-12">
+ <div class="container" style="text-align: center">
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container">
+        <h1 class="display-4">Detailed Maintenance Occurrence</h1>
+        <h2 class="display-4"> {{ title }} </h2>
+        <h2 class="display-4"> {{ title2 }} </h2>
+      </div>
+    </div>
+</div>
+
+<div class="col-md-6">
+    <div class="card card-body">
+        <form action="{% url 'maintenance_occurrence'%}" method="POST">
+            {% csrf_token %}
+            <h5>Occurrence</h5>
+            <input type="number" name="occurrence" id="occurrence" class="form-control" placeholder="Please enter the minimum number of occurrence to display from" required autofocus>
+            <h5>Start Date</h5>
+            <input type="date" name="date" id="date" class="form-control" placeholder="Start Date" required autofocus>
+{#                  <br/>#}
+            <h5>End Date</h5>
+            <input type="date" name="date2" id="date" class="form-control" placeholder="End Date" required>
+            <button class="btn btn-outline-info" type="submit">Submit</button>
+        </form>
+    </div>
+</div>
+  <a href="#" class="btn btn-primary">View Summary</a></span>
+        <div class="table-responsive">
+  <table id="bootstrapdatatable" class="table table-striped table-bordered" width="100%">
+            <thead>
+                <th>No.</th>
+                <th>Box No.</th>
+                <th>Printer No.</th>
+                <th>Occurrence</th>
+                <th>Repair Status</th>
+                <th>Pickup Date</th>
+                <th>Problem Resolved</th>
+                <th>Fixed By</th>
+                <th>Date Fixed</th>
+             </thead>
+   <tbody>
+   {% for schedule in schedules %}
+    <tr>
+    <td>{{ schedule.action_status }}</td>
+     <td>{{ schedule.box_number }}</td>
+     <td>{{ schedule.printer_number }}</td>
+     <td>{{ schedule.delivery_status }}</td>
+     <td>{{ schedule.repair_status }}</td>
+     <td>{{ schedule.pickup_date }}</td>
+     <td>{{ schedule.problem }}</td>
+     <td>{{ schedule.fixed_by }}</td>
+     <td>{{ schedule.date_repaired }}</td>
+    </tr>
+   {% endfor %}
+   </tbody>
+  </table>
+        </div>
+ </div>
+{% endblock content %}

@@ -1,0 +1,13 @@
+{% autoescape off %}
+
+Hi {{ user.first_name }},
+
+Good News!
+
+Your ticket with issue category {{ issue }} has been fixed by {{ admin }}.
+
+You may use the below link to login and confirm the issue fixed:
+
+
+Confirm ticket fixed by {{ admin }}: http://{{ domain }}{% url 'tickets_u' %}
+{% endautoescape %}

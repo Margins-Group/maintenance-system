@@ -1,0 +1,39 @@
+{% extends "admin_account/report_base.html" %}
+
+{% block title %}Parts{% endblock title %}
+
+{% block content %}
+ <div class="col-md-12">
+  <div class="container" style="text-align: center">
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container">
+        <h1 class="display-4">FREQUENTLY USED PARTS</h1>
+        <h2 style="text-align: center">Order of frequency</h2>
+      </div>
+    </div>
+</div>
+
+  <div class="table-responsive">
+  <table id="bootstrapdatatable" class="table table-striped table-bordered" width="100%">
+      <thead>
+      <th>No.</th>
+      <th>Part Name</th>
+{#      <th>Part usage Frequency</th>#}
+      <th>Approved By</th>
+      <th>Date Added</th>
+      </thead>
+      <tbody>
+      {% for part in parts %}
+   <tr>
+     <td>{{ part.id }}</td>
+     <td>{{ part.name }}</td>
+{#     <td>{{ part.action_status }}</td>#}
+     <td>{{ part.approved_by}}</td>
+     <td>{{ part.created_at }}</td>
+   </tr>
+   {% endfor %}
+  </tbody>
+     </table>
+   </div>
+ </div>
+{% endblock content %}

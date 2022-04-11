@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block title %}Register Page{% endblock title %}
+{% block form_heading %}Registration Form{% endblock form_heading %}
+{% block content %}
+    <form method="POST" action="{% url 'register' %}" class="form-signup">
+        {% csrf_token %}
+        <div class="form-group mb-4">
+            <label class="sr-only">First Name</label>
+            <input type="text" name="first_name" id="first_name" class="form-control" placeholder="First Name" required>
+        </div>
+        <div class="form-group mb-4">
+            <label class="sr-only">Middle Name</label>
+            <input type="text" name="middle_name" id="first_mame" class="form-control" placeholder="Middle Name">
+        </div>
+        <div class="form-group mb-4">
+            <label  class="sr-only">Last Name</label>
+            <input type="text" name="last_name" id="last_name" class="form-control" placeholder="Last Name" required>
+        </div>
+        <div class="form-group">
+            <label for="email" class="sr-only">Email</label>
+            <input type="email" name="email" id="email" class="form-control" placeholder="Email address" required autofocus>
+        </div>
+        <div class="form-group mb-4">
+            <label class="sr-only">Phone Number</label>
+            <input type="tel" name="phone_number" id="phone_number" class="form-control" placeholder="Phone Number" required>
+        </div>
+        <div class="form-group mb-4">
+            <label class="sr-only">Enter Password</label>
+            <input type="password" name="password1" id="password1" class="form-control" placeholder="Enter Password" required>
+        </div>
+        <div class="form-group mb-4">
+            <label class="sr-only">Confirm Password</label>
+            <input type="password" name="password2" id="password2" class="form-control" placeholder="Confirm Password" required>
+        </div>
+        <button class="btn btn-block btn btn-dark" type="submit">Register</button>
+    </form>
+    <p class="login-card-footer-text">Already have an account? <a href="{% url 'login' %}" class="text-reset">Sign In</a></p>
+    <nav class="login-card-footer-nav">
+        <a href="#!">Terms of use.</a>
+        <a href="#!">Privacy policy</a>
+    </nav>
+{% endblock %}

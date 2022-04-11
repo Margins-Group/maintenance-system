@@ -1,0 +1,12 @@
+{% autoescape off %}
+
+Hi {{ user }},
+
+{{ heading }}!
+
+Your request of {{ info }} was {{ action }} by {{ admin }}.
+
+You may use the below link to login for more details:
+
+http://{{ domain }}{% url 'login' %}
+{% endautoescape %}

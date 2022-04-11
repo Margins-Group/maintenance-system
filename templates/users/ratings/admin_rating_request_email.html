@@ -1,0 +1,13 @@
+{% autoescape off %}
+
+Hi {{ recipient }},
+In order to ensure customer satisfaction, we would like you to rate {{ user }} with regards to how the issue was fixed.
+You recently confirmed that {{ user }} has actually fixed your issue on  {{ training.issue }}.
+
+{{ user }} is really counting on your ratings to help him/her improve on his/her performance.
+
+use the below link to rate {{ user }}.
+
+http://{{ domain }}{% url 'rate_admin' uid=uid tid=tid %}
+
+{% endautoescape %}

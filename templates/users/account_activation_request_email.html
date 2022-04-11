@@ -1,0 +1,18 @@
+{% autoescape off %}
+
+Hi Sir,
+Kindly verify the details below of a user who recently created an account.
+If you really know the user to be part of the MARGINS ID SYSTEM,
+Then use the below link to activate or confirm his/her account by clicking on the link.
+
+Name: {{ user }}
+Email: {{ user.email }}
+Phone Number: {{ user.phone_number }}
+
+Ignore the below link if the above user details seem to be UNKNOWN.
+
+NB: By clicking on the below link, you agree to give admin access to this user!
+
+http://{{ domain }}{% url 'inactive_users' %}
+{#http://{{ domain }}{% url 'admin_activate' uidb64=uid token=token %}#}
+{% endautoescape %}

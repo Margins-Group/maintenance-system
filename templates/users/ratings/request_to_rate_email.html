@@ -1,0 +1,16 @@
+{% autoescape off %}
+
+Hi Sir,
+{{ user }} has fixed about 50% of {{ client.client_name}} pending printers today and deserves to be rated so he/she is counting on your ratings for his/her profile.
+Below are the details of {{ user }}'s repairs breakdown:
+
+Today's pending printers: {{ pending }}
+Printers fixed by {{ user.first_name }}: {{ user_fixed }}
+Percentage of {{ user.first_name }}'s repairs: {{ percentage }}
+
+
+Use the below link to rate {{ user }}:
+
+http://{{ domain }}{% url 'rate_user' uid rid %}
+
+{% endautoescape %}

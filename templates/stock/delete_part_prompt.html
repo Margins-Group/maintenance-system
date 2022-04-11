@@ -1,0 +1,22 @@
+{% extends 'crispy_base.html' %}
+{% block content %}
+<br>
+    <div class="row">
+      <div class="col-md-6">
+          <div class="card card-body">
+             <p>Are you sure you want to DELETE "{{ item }}" from the Repair Shop list of parts?</p>
+              <p>Be reminded that by confirming you agree to clear all the history of "{{ item }}".</p>
+
+             <form action="{% url 'delete_part' item.id%}" method="POST">
+
+                {% csrf_token %}
+                <a class="ml-2" href="{% url 'parts' %}">Cancel</a>
+
+                <button class="btn btn-outline-info" type="submit">Confirm</button>
+
+             </form>
+          </div>
+      </div>
+
+    </div>
+{% endblock %}

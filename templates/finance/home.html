@@ -1,0 +1,90 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.80.0">
+    <title>Printer Management - Dashboard</title>
+ <style>
+    img{
+        width: 60px;
+    }
+</style>
+
+<!-- Font Awesome -->
+<link
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+  rel="stylesheet"
+/>
+<!-- Google Fonts -->
+<link
+  href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+  rel="stylesheet"
+/>
+<!-- MDB -->
+<link
+  href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.css"
+  rel="stylesheet"
+/>
+   <!-- CSS only -->
+<!--<link rel="stylesheet" href="https://cdn.materialdesignicons.com/4.8.95/css/materialdesignicons.min.css"> -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+<link href="/docs/5.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+ <link rel="stylesheet" type="text/css" href="{% static '/css/dashboard.css' %}">
+
+ </head>
+  {% include 'navbar.html' %}
+<body>
+  <div class="container middle">
+      <div class="row g-4">
+          <div class="col-4">
+              <div class="p-3 border bg-light" align="center">
+                  <a href="{% url 'user_event' %}"><img class="card-img-top" src="{% static 'images/USER.jpg' %}"></a>
+                  <p>
+                    <a href="{% url 'user_event' %}" style="text-decoration: none"><h4>MY ACTIVITIES</h4></a>
+                  </p>
+              </div>
+          </div>
+          <div class="col-4">
+              <div class="p-3 border bg-light" align="center">
+                   <a href="{% url 'account_portal' %}"><img class="card-img-top" src="{% static 'images/parts.png' %}">
+                   <p>
+                       <a href="{% url 'account_portal' %}" style="text-decoration: none"><h4>NHIA SLA</h4></a>
+              </div>
+          </div>
+          <div class="col-4">
+              <div class="p-3 border bg-light" align="center">
+                   <a href="{% url 'nhia_report' %}"><img class="card-img-top" src="{% static 'images/parts.png' %}">
+                   <p>
+                       <a href="{% url 'nhia_report' %}" style="text-decoration: none"><h4>NHIA PRINTERS REPORT</h4></a>
+              </div>
+          </div>
+          <div class="col-4">
+              <div class="p-3 border bg-light" align="center">
+                  <a href="{% url 'helpdesk_u' %}"><img class="card-img-top" src="{% static 'images/helpdesk.jfif' %}"></a>
+                  <p>
+                    <a href="{% url 'helpdesk_u' %}" style="text-decoration: none"><h4>HELPDESK</h4></a>
+                  </p>
+              </div>
+          </div>
+          <div class="col-4">
+              <div class="p-3 border bg-light" align="center">
+                  <a href="{% url 'parts' %}" ><img class="card-img-top" src="{% static 'images/parts.png' %}">
+                  <p>
+                     <a href="{% url 'parts' %}"  style="text-decoration: none"><h4>STOCK</h4></a>
+                  </p>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+  {% include 'footer.html' %}
+</body>
+</html>

@@ -1,0 +1,65 @@
+{% extends "standard_account/report_base.html" %}
+{% block title %}Client report details{% endblock title %}
+
+
+{% block content %}
+ <div class="col-md-12">
+ <div class="container" style="text-align: center">
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container">
+        <h1 class="display-4">{{ title }} </h1>
+        <h2 class="display-4"> {{ period }} </h2>
+      </div>
+    </div>
+</div>
+     <div class="table-responsive">
+  <table id="bootstrapdatatable" class="table table-striped table-bordered" width="100%">
+  {% if type == 'cancelled' %}
+      <thead>
+      <th>MRW No.</th>
+      <th>Cancelled By</th>
+      <th>Approved By</th>
+      <th>Cancellation Reason</th>
+      <th>Date Approved</th>
+      </thead>
+      <tbody>
+      {% for schedule in schedules %}
+          <tr>
+              <td>{{ schedule.mrw_number }}</td>
+              <td>{{ schedule.user }}</td>
+              <td>{{ schedule.approved_by }}</td>
+              <td>{{ schedule.cancellation_reason }}</td>
+              <td>{{ schedule.updated_at }}</td>
+          </tr>
+      {% endfor %}
+      </tbody>
+  {% else %}
+      <thead>
+      <th>MRW No.</th>
+      <th>Scheduled By</th>
+      <th>Pickup Date</th>
+      <th>Pickup Parts</th>
+      <th>Problem</th>
+      <th>Status</th>
+      <th>Fixed By</th>
+      <th>Delivery Date</th>
+      </thead>
+      <tbody>
+      {% for schedule in schedules %}
+          <tr>
+              <td>{{ schedule.mrw_number }}</td>
+              <td>{{ schedule.user }}</td>
+              <td>{{ schedule.pickup_date }}</td>
+              <td>{{ schedule.pickup_parts }}</td>
+              <td>{{ schedule.problem }}</td>
+              <td>{{ schedule.repair_status }}</td>
+              <td>{{ schedule.fixed_by }}</td>
+              <td>{{ schedule.date_delivered }}</td>
+          </tr>
+      {% endfor %}
+      </tbody>
+  {% endif %}
+  </table>
+        </div>
+    </div>
+{% endblock content %}

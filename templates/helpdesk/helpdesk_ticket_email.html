@@ -1,0 +1,13 @@
+{% autoescape off %}
+
+Hello Admin,
+
+There is a new helpdesk ticket from  {{ user.first_name }} {{ user.middle_name }} {{ user.last_name }}with te below issue category:
+
+Issue Category: {{ issue }}
+
+
+Use the below link for the ticket details as well as being of help to {{ user.first_name }}:
+
+http://{{ domain }}{% url 'tickets' %}
+{% endautoescape %}

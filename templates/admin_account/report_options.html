@@ -1,0 +1,114 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.80.0">
+    <title>Reporting</title>
+
+
+<!-- Google Fonts -->
+<link
+  href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+  rel="stylesheet"
+/>
+<!-- MDB -->
+<link
+  href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.css"
+  rel="stylesheet"
+/>
+   <!-- CSS only -->
+<link rel="stylesheet" href="https://cdn.materialdesignicons.com/4.8.95/css/materialdesignicons.min.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+<link href="/docs/5.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+<style>
+    .container{
+        padding-top: 50px;
+    }
+</style>
+ </head>
+  {% include 'navbar.html' %}
+ <body>
+
+<div class="container" style="text-align: center">
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container">
+        <h1 class="display-4">REPORTING</h1>
+      </div>
+    </div>
+</div>
+    <div class="alert alert-success container" role="alert">
+      <a href="{% url 'user_report' %}" class="alert-link">TECHNICIANS REPORT ON PRINTERS</a>
+    </div>
+    <div class="alert alert-danger container" role="alert">
+      <a href="{% url 'client_report' %}" class="alert-link">PRINTER REPAIRS SUMMARY REPORT</a>
+    </div>
+    <div class="alert alert-info container" role="alert">
+      <a href="{% url 'user_laminator_report' %}" class="alert-link">TECHNICIANS REPORT ON LAMINATORS</a>
+    </div>
+    <div class="alert alert-warning container" role="alert">
+      <a href="{% url 'client_laminator_report' %}" class="alert-link">LAMINATOR REPAIRS SUMMARY REPORT</a>
+    </div>
+    <div class="alert alert-primary container" role="alert">
+      <a href="{% url 'user_mrw_report' %}" class="alert-link">TECHNICIANS REPORT ON MRWs</a>
+    </div>
+    <div class="alert alert-secondary container" role="alert">
+      <a href="{% url 'client_mrw_report' %}" class="alert-link">MRW REPAIRS SUMMARY REPORT</a>
+    </div>
+    <div class="alert alert-success container" role="alert">
+      <a href="{% url 'user_iss_report' %}" class="alert-link">TECHNICIANS REPORT ON ISSs</a>
+    </div>
+    <div class="alert alert-danger container" role="alert">
+      <a href="{% url 'client_iss_report' %}" class="alert-link">ISS REPAIRS SUMMARY REPORT</a>
+    </div>
+    <div class="alert alert-primary container" role="alert">
+      <a href="{% url 'maintenance' %}" class="alert-link">PENDING PRINTERS REPORT</a>
+    </div>
+    <div class="alert alert-dark container" role="alert">
+      <a href="{% url 'delay_maintenances' %}" class="alert-link">DELAY PRINTER MAINTENANCE REPORT</a>
+    </div>
+    <div class="alert alert-info container" role="alert">
+      <a href="{% url 'parts' %}" class="alert-link">STOCK REPORT</a>
+    </div>
+    <div class="alert alert-warning container" role="alert">
+      <a href="{% url 'maintenance_occurrence' %}" class="alert-link">MAINTENANCE OCCURRENCE REPORT</a>
+    </div>
+    <div class="alert alert-success container" role="alert">
+      <a href="{% url 'fixed_printers' %}" class="alert-link">FIXED PRINTERS REPORT</a>
+    </div>
+    <div class="alert alert-primary container" role="alert">
+      <a href="{% url 'rma_requests' %}" class="alert-link">RMA REQUESTS REPORT</a>
+    </div>
+    <div class="alert alert-warning container" role="alert">
+      <a href="{% url 'client_printers' %}" class="alert-link">CLIENT PRINTERS REPORT</a>
+    </div>
+    <div class="alert alert-info container" role="alert">
+      <a href="{% url 'client_laminators' %}" class="alert-link">CLIENT LAMINATORS REPORT</a>
+    </div>
+    <div class="alert alert-secondary container" role="alert">
+      <a href="{% url 'client_mrws' %}" class="alert-link">CLIENT MRWs REPORT</a>
+    </div>
+<div class="alert alert-success container" role="alert">
+      <a href="{% url 'client_iss' %}" class="alert-link">CLIENT ISSs REPORT</a>
+    </div>
+    <div class="alert alert-primary container" role="alert">
+      <a href="{% url 'weekly_printers_report' %}" class="alert-link">WEEKLY PRINTER REPORT</a>
+    </div>
+    <!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+ <!-- MDB -->
+
+<footer  id="sticky-footer" class="py-4 bg-dark text-white-50 footer">
+    <div class="container text-center">
+      <a class="navbar-link" href="#" style="color: #fff">Copyright &copy; MIDSA 2021</a>
+    </div>
+</footer>
+ </body>
+
+</html>

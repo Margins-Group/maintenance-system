@@ -1,0 +1,21 @@
+{% extends 'crispy_base.html' %}
+{% block content %}
+<br>
+    <div class="row">
+      <div class="col-md-6">
+          <div class="card card-body">
+             <p>Are you sure you want to CANCEL this {{ item.client }} maintenance schedule?</p>
+              <p>Be reminded that by confirming you agree to delete it permanently!".</p>
+
+             <form action="{% url 'cancel_client_maintenance' item.id%}" method="POST">
+                {% csrf_token %}
+                <a class="btn btn-outline-info" href="{% url 'client_maintenance' %}">Cancel</a>
+
+                <button class="btn btn-outline-info" type="submit">Confirm</button>
+
+             </form>
+          </div>
+      </div>
+
+    </div>
+{% endblock %}

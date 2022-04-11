@@ -1,0 +1,13 @@
+{% autoescape off %}
+
+Hi Sir/Madam,
+You are hereby reminded of a maintenance scheduled by {{ user }}.
+This maintenance would take effect from {{ sd }} to {{ ed }}.
+Kindly make room and amend accordingly as the below assigned technicians make preparation towards the stipulated date.
+Assigned Technicians:
+{% for i in users %}
+    {{ i.name }},
+{% endfor %}
+Thank you.
+
+{% endautoescape %}

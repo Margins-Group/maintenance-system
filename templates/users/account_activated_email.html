@@ -1,0 +1,14 @@
+{% autoescape off %}
+
+Hi {{ user.first_name }},
+
+Congratulations!
+
+Your Account has been activated by {{ current_user.first_name }} {{ current_user.middle_name}} {{ current_user.last_name}}; You have been successfully added to Printer Support Team.
+
+Your Account was activated as {{ privilege }}. You now have {{ privilege }} user privilege to the system.
+
+Use the below link to login:
+
+http://{{ domain }}{% url 'login' %}
+{% endautoescape %}

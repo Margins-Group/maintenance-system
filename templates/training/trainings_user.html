@@ -1,0 +1,42 @@
+{% extends "standard_account/report_base.html" %}
+{% block title %}Trainings{% endblock title %}
+
+{% block content %}
+ <div class="col-md-12">
+  <div class="container" style="text-align: center">
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container">
+        <h1 class="display-4">TRAININGS</h1>
+      </div>
+    </div>
+</div>
+     <div class="table-responsive">
+  <table id="bootstrapdatatable" class="table table-striped table-bordered" width="100%">
+            <thead>
+                <th>Trained By</th>
+                <th>Trained On</th>
+                <th>Description</th>
+                <th>Client</th>
+                <th>Trainer's Comment</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>Status</th>
+             </thead>
+   <tbody>
+   {% for i in trainings %}
+    <tr>
+     <td>{{ i.ratee }}</td>
+     <td>{{ i.training_type }}</td>
+     <td>{{ i.description }}</td>
+     <td>{{ i.client }}</td>
+     <td>{{ i.ratee_comment }}</td>
+     <td>{{ i.start_date }}</td>
+     <td>{{ i.end_date }}</td>
+     <td>{{ i.training_status }}</td>
+   {% endfor %}
+   </tbody>
+
+  </table>
+        </div>
+    </div>
+{% endblock content %}

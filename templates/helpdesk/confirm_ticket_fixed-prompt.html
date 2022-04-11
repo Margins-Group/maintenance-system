@@ -1,0 +1,22 @@
+{% extends 'crispy_base.html' %}
+{% block content %}
+<br>
+    <div class="row">
+      <div class="col-md-6">
+          <div class="card card-body">
+             <p>Are you sure your ticket with issue category {{ item.issue }} has been fixed?</p>
+              <p>Be reminded that by confirming you agree to confirm that this ticket has been fixed by {{ name }}.</p>
+
+             <form action="{% url 'confirm_ticket' item.id%}" method="POST">
+
+                {% csrf_token %}
+                <a class="btn btn-outline-info" href="{% url 'tickets_u' %}">Cancel</a>
+
+                <button class="btn btn-outline-info" type="submit">Confirm</button>
+
+             </form>
+          </div>
+      </div>
+
+    </div>
+{% endblock %}

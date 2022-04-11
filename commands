@@ -1,0 +1,48 @@
+Run a network
+===============================
+python manage.py runserver 172.20.10.2:8000
+
+
+Create app
+===============================
+python manage.py startapp <appname>
+
+
+Dump project data
+===============================
+python manage.py dumpdata --natural-foreign --natural-primary -e contenttypes -e auth.Permission --indent 2 > dump.json
+
+
+Dump project data
+===============================
+python manage.py migrate
+python manage.py loaddata "path/to/fixture/file"  eg. python manage.py loaddata "data.json"
+
+
+django-celery-beat
+===============================
+celery -A printer_support beat -l INFO  # For deeper logs use DEBUG
+
+
+Database scheduler
+celery -A printer_support beat -l INFO --scheduler django_celery_beat.schedulers:DatabaseScheduler
+
+
+For beginning and updating
+===============================
+coverage run manage.py test
+
+
+For excluding venv
+===============================
+coverage run --omit='*/venv/*' manage.py test
+
+
+Helps to know where exactly needs to be tested
+===============================
+coverage report
+
+
+Helps to know where exactly needs to be tested in html
+===============================
+coverage html

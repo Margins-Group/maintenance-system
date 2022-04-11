@@ -1,0 +1,18 @@
+{% autoescape off %}
+
+Hi Sir,
+Kindly verify the details below of a PENDING APPROVAL REQUEST.
+
+Name: {{ user.first_name }} {{ user.middle_name }} {{ user.last_name }}
+Email: {{ user.email }}
+Phone Number: {{ user.phone_number }}
+Pending Request Approval: {{ heading }}
+Supporting Reason: {{ reason }}
+
+Ignore the below link if the above user details seem to be Reasonable.
+
+Use the below link to login to take action:
+
+http://{{ domain }}{% url 'pending_approvals' %}
+
+{% endautoescape %}

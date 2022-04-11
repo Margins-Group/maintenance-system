@@ -1,0 +1,20 @@
+{% autoescape off %}
+
+Hi Sir/Madam,
+In order to ensure customer satisfaction, we would like you to assess and rate {% for i in users %} {{ i.name }}, {% endfor %}.
+They recently had a training with your team on {{ training.training_category }} from {{ training.start_date }} to {{ training.end_date }}.
+
+They're really counting on your assessments and ratings to help them improve on their performances.
+
+use the below link to assess and rate these trainers:
+
+{% for i in users %}
+    Trainer Name: {{ i.name }}
+    Link for assessment and rating: {{ i.link }}
+
+{% endfor %}
+
+{% endautoescape %}
+
+
+

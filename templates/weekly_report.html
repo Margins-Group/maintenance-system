@@ -1,0 +1,60 @@
+{% extends "admin_account/report_base.html" %}
+
+{% block title %}Weekly NHIA Printers Report{% endblock title %}
+
+{% block content %}
+ <div class="col-md-12">
+  <div class="container" style="text-align: center">
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container">
+        <h1 class="display-4">Weekly NHIA Printers Report</h1>
+      </div>
+    </div>
+</div>
+
+     <div class="col-md-6">
+          <div class="card card-body">
+              <form action="{% url 'weekly_printers_report'%}" method="POST">
+                  {% csrf_token %}
+                  <h5>Pickup Date</h5>
+                  <input type="date" name="date" id="date" class="form-control" placeholder="Start Date" required autofocus>
+                  <h5>Delivery Date</h5>
+                  <input type="date" name="date2" id="date" class="form-control" placeholder="End Date" required>
+                  <button class="btn btn-outline-info" type="submit">Submit</button>
+               </form>
+          </div>
+      </div>
+        <div class="table-responsive">
+  <table id="bootstrapdatatable" class="table table-striped table-bordered" width="100%">
+            <thead>
+                <th>Box No.</th>
+                <th>Printer No.</th>
+                <th>Pickup Parts</th>
+                <th>Repair Status</th>
+                <th>Problem Fixed</th>
+                <th>Parts Replaced</th>
+                <th>New Serial No. Replaced</th>
+                <th>Old Serial No. Replaced</th>
+                <th>Pickup Date</th>
+                <th>Delivery Date</th>
+             </thead>
+   <tbody>
+   {% for schedule in schedules %}
+    <tr>
+     <td>{{ schedule.box_number }}</td>
+     <td>{{ schedule.printer_number }}</td>
+     <td>{{ schedule.pickup_parts }}</td>
+     <td>{{ schedule.repair_status }}</td>
+     <td>{{ schedule.problem }}</td>
+     <td>{{ schedule.parts_replaced}}</td>
+     <td>{{ schedule.old_head_barcode }}</td>
+     <td>{{ schedule.new_head_barcode }}</td>
+     <td>{{ schedule.pickup_date }}</td>
+     <td>{{ schedule.date_delivered }}</td></tr>
+   {% endfor %}
+   </tbody>
+
+  </table>
+        </div>
+    </div>
+{% endblock content %}

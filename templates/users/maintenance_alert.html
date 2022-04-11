@@ -1,0 +1,17 @@
+{% autoescape off %}
+
+Maintenance Alert!
+
+Hi team member,
+
+Your are duly reminded of maintenance scheduled for {{ client }} on {{ date }}.
+
+Kindly take note and join the Maintenance Team at their venue.
+
+Use the below link to view the due maintenances:
+
+http://{{ domain }}{% url 'admin_activate' uidb64=uid token=token %}
+
+Best regards - MIDSA Technical Team.
+
+{% endautoescape %}

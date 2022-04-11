@@ -1,0 +1,30 @@
+{% extends 'crispy_base.html' %}
+{% block content %}
+<br>
+    <div class="row">
+      <div class="col-md-6">
+          <div class="card card-body">
+             <p>Are you sure you want to give the selected user privilege to {{ item }}'s account?</p>
+              <p>Be reminded that by confirming you agree to give the SELECTED USER PRIVILEGE to {{ item }}.</p>
+
+             <form action="{% url 'activate_user' item.id%}" method="POST">
+                {% csrf_token %}
+                 <select name="privilege" autofocus>
+                   <option value="None">Select a privilege level</option>
+                   <option value="procurement officer">Procurement Officer</option>
+                   <option value="technician">Technician</option>
+                   <option value="technician">Supervisor</option>
+                   <option value="accountant">Accountant</option>
+                   <option value="admin">Admin</option>
+                 </select>
+                 <br />
+                <a class="btn btn-outline-info" href="{% url 'inactive_users' %}">Cancel</a>
+
+                <button class="btn btn-outline-info" type="submit">Confirm</button>
+
+             </form>
+          </div>
+      </div>
+
+    </div>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'crispy_base.html' %}
+{% block content %}
+<br>
+    <div class="row">
+      <div class="col-md-6">
+          <div class="card card-body">
+             <p>Are you sure you want to DEACTIVATE the user account of "{{ item }}"?</p>
+              <p>Be reminded that by confirming you agree to remove GRANTED PRIVILEGE ACCESS from {{ item }}.</p>
+              <p>"{{ item }}" won't be able to access the system or login anymore.</p>
+
+             <form action="{% url 'deactivate_user' item.id%}" method="POST">
+
+                {% csrf_token %}
+                <a class="btn btn-outline-info" href="{% url 'active_users' %}">Cancel</a>
+
+                <button class="btn btn-outline-info" type="submit">Confirm</button>
+
+             </form>
+          </div>
+      </div>
+
+    </div>
+{% endblock %}
